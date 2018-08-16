@@ -2,14 +2,12 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 22
 
-        testApplicationId "com.hoho.android.usbserial.examples"
-        testInstrumentationRunner "android.test.InstrumentationTestRunner"
     }
 
     buildTypes {
