@@ -39,7 +39,7 @@
         android:layout_height="1dip"
         android:layout_below="@+id/progressBar"
         android:layout_centerHorizontal="true"
-        android:background="#eeeeee" />
+        android:background="#00CD00" />
 
     <ListView
         android:id="@+id/deviceList"

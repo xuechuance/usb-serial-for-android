@@ -21,6 +21,7 @@
 
 package com.hoho.android.usbserial.examples;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.hardware.usb.UsbDevice;
@@ -66,6 +67,7 @@ public class DeviceListActivity extends Activity {
     private static final int MESSAGE_REFRESH = 101;
     private static final long REFRESH_TIMEOUT_MILLIS = 5000;
 
+    @SuppressLint("HandlerLeak")
     private final Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {

@@ -14,7 +14,7 @@
         <activity
             android:name="com.hoho.android.usbserial.examples.DeviceListActivity"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.Light" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,7 +32,7 @@
         <activity
             android:name="com.hoho.android.usbserial.examples.SerialConsoleActivity"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.Light" >
         </activity>
     </application>
 
