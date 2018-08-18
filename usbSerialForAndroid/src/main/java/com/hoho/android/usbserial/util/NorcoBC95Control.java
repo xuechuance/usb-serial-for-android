@@ -28,6 +28,7 @@ public class NorcoBC95Control {
 
     private final String TAG = "NorcoBC95Control";
 
+    private String version  = "V1.0.0";
 
     private static final int READ_WAIT_MILLIS = 200;
     private static final int BUFSIZ = 4096;
@@ -253,6 +254,11 @@ public class NorcoBC95Control {
 
     }
 
+    //获取jar库的版本号
+    public String getJarVersion()
+    {
+        return version;
+    }
 
     //获取最后一次数据读取到的byte数组
     public byte[] getLastReadDataByte()
