@@ -19,7 +19,7 @@
  * Project home page: https://github.com/mik3y/usb-serial-for-android
  */
 
-package com.hoho.android.usbserial.driver;
+package com.norco.android.usbserial.driver;
 
 /**
  * Registry of USB vendor/product ID constants.

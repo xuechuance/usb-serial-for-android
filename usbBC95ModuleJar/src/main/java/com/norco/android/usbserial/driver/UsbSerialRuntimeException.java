@@ -17,7 +17,7 @@
  * USA.
  */
 
-package com.hoho.android.usbserial.driver;
+package com.norco.android.usbserial.driver;
 
 /**
  * Generic unchecked exception for the usbserial package.

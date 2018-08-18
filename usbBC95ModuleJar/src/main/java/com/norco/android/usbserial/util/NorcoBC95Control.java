@@ -1,4 +1,4 @@
-package com.hoho.android.usbserial.util;
+package com.norco.android.usbserial.util;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -11,11 +11,11 @@ import android.os.SystemClock;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 
-import com.hoho.android.usbserial.driver.UsbSerialDriver;
-import com.hoho.android.usbserial.driver.UsbSerialPort;
-import com.hoho.android.usbserial.driver.UsbSerialProber;
-import com.hoho.android.usbserial.util.HexDump;
-import com.hoho.android.usbserial.util.SerialInputOutputManager;
+import com.norco.android.usbserial.driver.UsbSerialDriver;
+import com.norco.android.usbserial.driver.UsbSerialPort;
+import com.norco.android.usbserial.driver.UsbSerialProber;
+import com.norco.android.usbserial.util.HexDump;
+import com.norco.android.usbserial.util.SerialInputOutputManager;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;

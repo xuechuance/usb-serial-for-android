@@ -19,7 +19,7 @@
  * Project home page: https://github.com/mik3y/usb-serial-for-android
  */
 
-package com.hoho.android.usbserial.examples;
+package com.norco.android.usbserial.examples;
 
 import android.app.Activity;
 import android.content.Context;
@@ -33,9 +33,9 @@ import android.widget.CompoundButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
-import com.hoho.android.usbserial.driver.UsbSerialPort;
-import com.hoho.android.usbserial.util.HexDump;
-import com.hoho.android.usbserial.util.SerialInputOutputManager;
+import com.norco.android.usbserial.driver.UsbSerialPort;
+import com.norco.android.usbserial.util.HexDump;
+import com.norco.android.usbserial.util.SerialInputOutputManager;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;

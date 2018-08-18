@@ -1,4 +1,4 @@
-package com.hoho.android.usbserial;
+package com.norco.android.usbserial;
 
 /**
  * Static container of information about this library.
