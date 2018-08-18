@@ -1,4 +1,4 @@
-package com.hoho.android.usbserial.examples;
+package com.hoho.android.usbserial.util;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
