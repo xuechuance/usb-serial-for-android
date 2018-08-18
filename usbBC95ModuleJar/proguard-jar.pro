@@ -90,3 +90,4 @@
 -keepattributes Signature
 
 -keep class com.norco.BC95Module.util.NorcoBC95Control{*;}
+-keep class com.norco.BC95Module.util.HexDump{*;}
