@@ -117,6 +117,16 @@ public class DeviceListActivity extends Activity {
                         NorcoBC95Control mNorcoBC95Control = new NorcoBC95Control(mContext);
                         mNorcoBC95Control.haveBC95Devices(0x1a86,0x7523);
                         mNorcoBC95Control.writeATCommandString("AT+CSQ\r\n");
+
+                        byte[] resultByte = mNorcoBC95Control.getLastReadDataByte();
+                        String resultString = mNorcoBC95Control.getLastReadDataString();
+                        if(resultByte != null)
+                        {
+                            Log.d(TAG, "resultByte: "+ HexDump.toHexString(resultByte));
+                        }
+
+                        Log.d(TAG, "resultString: "+resultString);
+                        
                     }
                 }).start();
             }

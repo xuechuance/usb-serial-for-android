@@ -165,7 +165,8 @@ public class NorcoBC95Control {
                 int writeCount = mUsbSerialPort.write(cmd.getBytes("UTF8"),100);
                 SystemClock.sleep(200);
                 usbSerialRead.exit();
-                SystemClock.sleep(200);
+                //等待数据读取线程终止
+                while(usbSerialRead.isThreadRuning());
 
                 lastErrorCode = 0;
                 lastErrorString = "";
@@ -226,7 +227,8 @@ public class NorcoBC95Control {
                 int writeCount = mUsbSerialPort.write(data,100);
                 SystemClock.sleep(200);
                 usbSerialRead.exit();
-                SystemClock.sleep(200);
+                //等待数据读取线程终止
+                while(usbSerialRead.isThreadRuning());
 
                 lastErrorCode = 0;
                 lastErrorString = "";
@@ -269,33 +271,36 @@ public class NorcoBC95Control {
 
         private boolean running = true;
 
-        public void run(){
+        public void run() {
 
             mLastReadDataByte = null;
             mLastReadDataString = "";
 
-            while(running){
+            while (running) {
 
                 int len = 0;
                 try {
                     len = mUsbSerialPort.read(mReadBuffer.array(), READ_WAIT_MILLIS);
                     if (len > 0) {
 
-                        final byte[] mLastReadDataByte = new byte[len];
+                        mLastReadDataByte = new byte[len];
                         mReadBuffer.get(mLastReadDataByte, 0, len);
-
-                        Log.d(TAG, "onNewData: "+ new String(mLastReadDataByte));
-
                         mLastReadDataString = new String(mLastReadDataByte);
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
-                } catch (NullPointerException e){
+                } catch (NullPointerException e) {
                     e.printStackTrace();
                 }
 
                 SystemClock.sleep(200);
             }
+        }
+
+        //查询线程是否正在运行
+        public boolean isThreadRuning()
+        {
+            return running;
         }
 
         //线程初始化
