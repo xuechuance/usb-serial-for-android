@@ -90,4 +90,23 @@
 -keepattributes Signature
 
 -keep class com.norco.BC95Module.util.NorcoBC95Control{*;}
+
+-keep class com.norco.BC95Module.util.NorcoBC95ControlReal{
+    public boolean haveBC95Devices(int,int);
+    public boolean writeATCommandString(java.lang.String);
+    public boolean writeATCommandByte(byte[]);
+    public java.lang.String getJarVersion();
+    public byte[] getLastReadDataByte();
+    public String getLastReadDataString();
+    public int getLastErrorCode();
+    public String getLastErrorString();
+}
+
 -keep class com.norco.BC95Module.util.HexDump{*;}
+
+
+
+-keepclassmembers public class * { 
+   void *(***);
+   *** *();
+}
