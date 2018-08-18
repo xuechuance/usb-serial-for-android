@@ -17,10 +17,10 @@
  * USA.
  */
 
-package com.norco.android.usbserial.driver;
+package com.norco.BC95Module.driver;
 
 /**
- * Generic unchecked exception for the usbserial package.
+ * Generic unchecked exception for the BC95Module package.
  *
  * @author mike wakerly (opensource@hoho.com)
  */

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.norco.android.usbserial.util;
+package com.norco.BC95Module.util;
 
 /**
  * Clone of Android's HexDump class, for use in debugging. Cosmetic changes

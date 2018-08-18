@@ -25,7 +25,7 @@
  * See https://github.com/eblot/pyftdi
  */
 
-package com.norco.android.usbserial.driver;
+package com.norco.BC95Module.driver;
 
 import android.hardware.usb.UsbConstants;
 import android.hardware.usb.UsbDevice;

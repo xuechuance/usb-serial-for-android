@@ -19,7 +19,7 @@
  * Project home page: https://github.com/mik3y/usb-serial-for-android
  */
 
-package com.norco.android.usbserial.examples;
+package com.norco.BC95Module.examples;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -43,11 +43,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.TwoLineListItem;
 
-import com.norco.android.usbserial.driver.UsbSerialDriver;
-import com.norco.android.usbserial.driver.UsbSerialPort;
-import com.norco.android.usbserial.driver.UsbSerialProber;
-import com.norco.android.usbserial.util.HexDump;
-import com.norco.android.usbserial.util.NorcoBC95Control;
+import com.norco.BC95Module.driver.UsbSerialDriver;
+import com.norco.BC95Module.driver.UsbSerialPort;
+import com.norco.BC95Module.driver.UsbSerialProber;
+import com.norco.BC95Module.util.HexDump;
+import com.norco.BC95Module.util.NorcoBC95Control;
 
 import java.util.ArrayList;
 import java.util.List;

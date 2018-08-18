@@ -19,7 +19,7 @@
  * Project home page: https://github.com/mik3y/usb-serial-for-android
  */
 
-package com.norco.android.usbserial.driver;
+package com.norco.BC95Module.driver;
 
 import android.hardware.usb.UsbConstants;
 import android.hardware.usb.UsbDevice;
@@ -28,7 +28,8 @@ import android.hardware.usb.UsbEndpoint;
 import android.hardware.usb.UsbRequest;
 import android.util.Log;
 
-import com.norco.android.usbserial.util.HexDump;
+
+import com.norco.BC95Module.util.HexDump;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;

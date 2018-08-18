@@ -1,1 +1,1 @@
-include 'usbBC95ModuleJar', 'usbSerialExamples'
+include 'usbBC95ModuleJar', 'usbBC95ModuleExamples'

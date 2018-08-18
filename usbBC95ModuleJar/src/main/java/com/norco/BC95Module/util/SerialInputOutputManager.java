@@ -19,12 +19,13 @@
  * Project home page: https://github.com/mik3y/usb-serial-for-android
  */
 
-package com.norco.android.usbserial.util;
+package com.norco.BC95Module.util;
 
 import android.hardware.usb.UsbRequest;
 import android.util.Log;
 
-import com.norco.android.usbserial.driver.UsbSerialPort;
+
+import com.norco.BC95Module.driver.UsbSerialPort;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;

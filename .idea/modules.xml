@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/usb-serial-for-android.iml" filepath="$PROJECT_DIR$/usb-serial-for-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/usb-serial-for-android.iml" filepath="$PROJECT_DIR$/.idea/usb-serial-for-android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/usbBC95ModuleExamples/usbBC95ModuleExamples.iml" filepath="$PROJECT_DIR$/usbBC95ModuleExamples/usbBC95ModuleExamples.iml" />
       <module fileurl="file://$PROJECT_DIR$/usbBC95ModuleJar/usbBC95ModuleJar.iml" filepath="$PROJECT_DIR$/usbBC95ModuleJar/usbBC95ModuleJar.iml" />
-      <module fileurl="file://$PROJECT_DIR$/usbSerialExamples/usbSerialExamples.iml" filepath="$PROJECT_DIR$/usbSerialExamples/usbSerialExamples.iml" />
     </modules>
   </component>
 </project>

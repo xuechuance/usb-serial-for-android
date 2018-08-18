@@ -1,4 +1,4 @@
-package com.norco.android.usbserial;
+package com.norco.BC95Module;
 
 /**
  * Static container of information about this library.
