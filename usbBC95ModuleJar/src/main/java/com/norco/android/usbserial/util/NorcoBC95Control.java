@@ -60,6 +60,9 @@ public class NorcoBC95Control {
     private int errorCode_writeCmd_03 = 2003;
     private final String errorString_writeCmd_03 = " Open BC95 devices failed !";
 
+    private int errorCode_writeCmd_04 = 2004;
+    private final String errorString_writeCmd_04 = " User has not given permission to device UsbDevice !";
+
     private int lastErrorCode = 0;
     private String lastErrorString = "";
 
@@ -148,7 +151,16 @@ public class NorcoBC95Control {
             mUsbSerialPort = mBC95Ports.get(0);
 
             //建立连接
-            UsbDeviceConnection connection = mUsbManager.openDevice(mUsbSerialPort.getDriver().getDevice());
+            UsbDeviceConnection connection = null;
+            try{
+                connection = mUsbManager.openDevice(mUsbSerialPort.getDriver().getDevice());
+            }catch(SecurityException e){
+                e.printStackTrace();
+                lastErrorCode = errorCode_writeCmd_04;
+                lastErrorString = errorString_writeCmd_04;
+                return false;
+            }
+
             if (connection == null) {
 
                 lastErrorCode = errorCode_writeCmd_02;
@@ -210,7 +222,16 @@ public class NorcoBC95Control {
             mUsbSerialPort = mBC95Ports.get(0);
 
             //建立连接
-            UsbDeviceConnection connection = mUsbManager.openDevice(mUsbSerialPort.getDriver().getDevice());
+            UsbDeviceConnection connection = null;
+            try{
+                connection = mUsbManager.openDevice(mUsbSerialPort.getDriver().getDevice());
+            }catch(SecurityException e){
+                e.printStackTrace();
+                lastErrorCode = errorCode_writeCmd_04;
+                lastErrorString = errorString_writeCmd_04;
+                return false;
+            }
+
             if (connection == null) {
 
                 lastErrorCode = errorCode_writeCmd_02;
@@ -324,8 +345,17 @@ public class NorcoBC95Control {
     }
 
 
+    //获取程序执行后的结果信息
+    public int getLastErrorCode()
+    {
+        return lastErrorCode;
+    }
 
-
+    //获取程序执行后的结果信息
+    public String getLastErrorString()
+    {
+        return lastErrorString;
+    }
 
 
 }

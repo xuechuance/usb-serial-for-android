@@ -127,6 +127,8 @@ public class DeviceListActivity extends Activity {
                         }
 
                         Log.d(TAG, "resultString: "+resultString);
+                        Log.d(TAG,"LastErrorCode: "+mNorcoBC95Control.getLastErrorCode());
+                        Log.d(TAG,"LastErrorString: "+mNorcoBC95Control.getLastErrorString());
                         
                     }
                 }).start();
