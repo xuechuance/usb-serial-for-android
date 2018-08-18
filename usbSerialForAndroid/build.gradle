@@ -17,22 +17,33 @@ android {
         }
     }
 
-    task makeJar(type: Copy) {
+    task makeNoProguardJar(type: Copy) {
         //删除存在的
-        delete 'build/jar/norcoBC95Module.jar'
+        delete 'build/noProguardJar/norcoBC95ModuleNoProguard.jar'
         //设置拷贝的文件
         from('build/intermediates/intermediate-jars/release/')
         //打进jar包后的文件目录
-        into('build/jar/')
+        into('build/noProguardJar/')
         //将classes.jar放入build/libs/目录下
         //include ,exclude参数来设置过滤
         //（我们只关心classes.jar这个文件）
         include('classes.jar')
         //重命名
-        rename ('classes.jar', 'norcoBC95Module.jar')
+        rename ('classes.jar', 'norcoBC95ModuleNoProguard.jar')
     }
 
-    makeJar.dependsOn(build)
+    makeNoProguardJar.dependsOn(build)
+
+    task makeProguardJar(type: proguard.gradle.ProGuardTask, dependsOn: "build") {
+        //删除存在的
+        delete 'build/proguardJar/norcoBC95Module.jar'
+        // 未混淆的jar
+        injars 'build/intermediates/intermediate-jars/release/classes.jar'
+        // 混淆后的jar路径
+        outjars 'build/proguardJar/norcoBC95Module.jar'
+        // 混淆文件
+        configuration 'proguard-jar.pro'
+    }
 
 }
 
