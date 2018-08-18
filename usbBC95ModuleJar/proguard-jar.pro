@@ -89,3 +89,4 @@
 #保护泛型  
 -keepattributes Signature
 
+-keep class com.norco.BC95Module.util.NorcoBC95Control{*;}

@@ -49,6 +49,7 @@ import com.norco.BC95Module.driver.UsbSerialProber;
 import com.norco.BC95Module.util.HexDump;
 import com.norco.BC95Module.util.NorcoBC95Control;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -127,8 +128,8 @@ public class DeviceListActivity extends Activity {
                         }
 
                         Log.d(TAG, "resultString: "+resultString);
-                        Log.d(TAG,"LastErrorCode: "+mNorcoBC95Control.getLastErrorCode());
-                        Log.d(TAG,"LastErrorString: "+mNorcoBC95Control.getLastErrorString());
+                        Log.d(TAG,"LastErrorCode: "+ mNorcoBC95Control.getLastErrorCode());
+                        Log.d(TAG,"LastErrorString: "+ mNorcoBC95Control.getLastErrorString());
                         
                     }
                 }).start();
