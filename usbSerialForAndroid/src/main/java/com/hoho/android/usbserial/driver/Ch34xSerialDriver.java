@@ -73,6 +73,16 @@ public class Ch34xSerialDriver implements UsbSerialDriver {
 		private UsbEndpoint mReadEndpoint;
 		private UsbEndpoint mWriteEndpoint;
 
+		//调试开关
+		private boolean debug = false;
+		private void logd(String TAG,String msg)
+		{
+			if(debug)
+			{
+				Log.d(TAG, msg);
+			}
+		}
+
 		public Ch340SerialPort(UsbDevice device, int portNumber) {
 			super(device, portNumber);
 		}
@@ -94,9 +104,9 @@ public class Ch34xSerialDriver implements UsbSerialDriver {
 				for (int i = 0; i < mDevice.getInterfaceCount(); i++) {
 					UsbInterface usbIface = mDevice.getInterface(i);
 					if (mConnection.claimInterface(usbIface, true)) {
-						Log.d(TAG, "claimInterface " + i + " SUCCESS");
+						logd(TAG, "claimInterface " + i + " SUCCESS");
 					} else {
-						Log.d(TAG, "claimInterface " + i + " FAIL");
+						logd(TAG, "claimInterface " + i + " FAIL");
 					}
 				}
 
@@ -191,7 +201,7 @@ public class Ch34xSerialDriver implements UsbSerialDriver {
 							+ " bytes at offset " + offset + " length=" + src.length);
 				}
 
-				Log.d(TAG, "Wrote amt=" + amtWritten + " attempted=" + writeLength);
+				logd(TAG, "Wrote amt=" + amtWritten + " attempted=" + writeLength);
 				offset += amtWritten;
 			}
 			return offset;

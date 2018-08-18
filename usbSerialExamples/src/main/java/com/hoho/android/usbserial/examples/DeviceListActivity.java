@@ -37,6 +37,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -59,10 +60,14 @@ public class DeviceListActivity extends Activity {
 
     private final String TAG = DeviceListActivity.class.getSimpleName();
 
+    private Context mContext;
+
     private UsbManager mUsbManager;
     private ListView mListView;
     private TextView mProgressBarTitle;
     private ProgressBar mProgressBar;
+
+    private Button mTestWriteButton;
 
     private static final int MESSAGE_REFRESH = 101;
     private static final long REFRESH_TIMEOUT_MILLIS = 5000;
@@ -74,6 +79,8 @@ public class DeviceListActivity extends Activity {
             switch (msg.what) {
                 case MESSAGE_REFRESH:
                     refreshDeviceList();
+
+                    //每次接收到消息后，延迟 REFRESH_TIMEOUT_MILLIS 后重新进行一次刷新操作
                     mHandler.sendEmptyMessageDelayed(MESSAGE_REFRESH, REFRESH_TIMEOUT_MILLIS);
                     break;
                 default:
@@ -92,10 +99,28 @@ public class DeviceListActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
+        mContext = getApplicationContext();
         mUsbManager = (UsbManager) getSystemService(Context.USB_SERVICE);
         mListView = (ListView) findViewById(R.id.deviceList);
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
         mProgressBarTitle = (TextView) findViewById(R.id.progressBarTitle);
+        mTestWriteButton = (Button) findViewById(R.id.write_button);
+
+        mTestWriteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //在线程中执行耗时操作
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        NorcoBC95Control mNorcoBC95Control = new NorcoBC95Control(mContext);
+                        mNorcoBC95Control.haveBC95Devices(0x1a86,0x7523);
+                        mNorcoBC95Control.writeATCommandString("AT+CSQ\r\n");
+                    }
+                }).start();
+            }
+        });
 
         mAdapter = new ArrayAdapter<UsbSerialPort>(this,
                 android.R.layout.simple_expandable_list_item_2, mEntries) {
@@ -146,7 +171,9 @@ public class DeviceListActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        mHandler.sendEmptyMessage(MESSAGE_REFRESH);
+
+        //暂且不启用系统自带
+        //mHandler.sendEmptyMessage(MESSAGE_REFRESH);
     }
 
     @Override
